@@ -3,8 +3,13 @@
 body {
   margin: 0;
   padding: 0;
-  font-family: 'Barlow', 'Segoe UI', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  font-style: normal;
   background-color: black;
+}
+
+.inicio h1 {
+  color: #ecc998;
 }
 
 :root {
@@ -17,14 +22,18 @@ body {
 
 .container {
   display: flex;
+  justify-content: center;
   width: 80%;
-  margin: auto;
+  margin-right: 10px;
 }
 
-.header {
-  height: var(--tamanho-header);
-  border-bottom: 2px solid #32b9cd;
-}
+  .header {
+    height: var(--tamanho-header);
+    border-bottom: 2px solid #ecc998;
+    display: flex;
+  justify-content: center;
+  align-items: center;
+  }
 
 .header .container {
   justify-content: space-between;
@@ -34,7 +43,7 @@ body {
 
 .header a {
   text-decoration: none;
-  color: #e3b062;
+  color: #ecc998;
 }
 
 .agora {
@@ -47,11 +56,11 @@ body {
   align-items: center;
   justify-content: space-between;
   list-style: none;
-  color: #e3b062;
+  color:#ecc998;
 }
 
 .titulo {
-  color: #32b9cd;
+  color: #ecc998;
   width: fit-content;
   font-weight: 500;
 }
@@ -65,18 +74,25 @@ body {
 .banner {
   height: var(--tamanho-banner);
   color: white;
-  background-image: url('../assets/imgs/bg-jelly-fish-para-home.png');
+  background-image: url('../assets/imgs/1.png');
   background-size: cover;
+  width: 500px;
+}
+
+.inicio {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
 }
 
 .banner .container {
   justify-content: center;
   align-items: center;
-  height: 100%;
+  height: 30%;
 }
 
 .banner .container p {
-  width: 50%;
+  width: 20%;
   margin: 0;
   padding: 0;
   font-size: 36px;
@@ -89,21 +105,26 @@ body {
 /* MISSÃO VISÃO VALORES */
 
 .social {
-  background-color: #e5e5e5;
+  background-color: black;
   display: flex;
+  justify-content: center;
+  align-items:center ;
 }
+
 
 .social .container {
   justify-content: center;
+  align-items: center;
 }
 
 .box img {
-  width: 170px;
+  width: 900px;
 }
 
 .social .container .boxes {
   display: flex;
-  justify-content: space-between;
+ justify-content: center;
+ align-items: center;
   width: 100%;
   padding: 30px 0;
 }
@@ -118,12 +139,34 @@ body {
   align-items: center;
 }
 
+.content a{
+  text-decoration: none;
+  display: flex;
+background-color:black;
+p {
+  border: 5px solid #ecc998;
+  border-radius:80px;
+
+  width: 120px;
+  height: 50px;
+  align-self: center;
+  margin-top: 20px;
+}
+border-color: #ecc998;  
+ font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+ font-size: 20px;
+ color: #ecc998;
+ width: 900px;
+ height: 150px;
+ justify-content: center;
+  align-items: center;
+}
 /* FOOTER */
 
 .footer {
-  background-color: #32b9cd;
+  background-color:  #ecc998;
   height: 150px;
-  color: #fff;
+  color: black;
   display: flex;
   font-size: 15px;
 }
@@ -141,8 +184,13 @@ body {
 
 .login {
   height: var(--tamanho-login);
-  background-image: url('../assets/imgs/bg-jelly-fish-para-home.png');
-  background-size: cover;
+  background-image: url('../assets/imgs/1.png');
+  justify-content: left;
+   align-items: left;
+  background-size:400px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .login .container {
@@ -153,12 +201,12 @@ body {
 
 .card {
   width: 50%;
-  background-color: #e5e5e5;
+  background-color:black;
   border-radius: 10px;
   display: flex;
   align-items: center;
   justify-content: space-evenly;
-  color: palevioletred;
+  color: #ecc998;
   flex-direction: column;
   height: fit-content;
   padding: 20px 0;
@@ -173,7 +221,7 @@ body {
   display: flex;
   height: 90%;
   width: 80%;
-  justify-content: space-around;
+  justify-content: center;
   flex-direction: column;
 }
 
@@ -183,7 +231,7 @@ body {
 }
 
 .formulario input {
-  border: 2px solid #32b9cd;
+  border: 2px solid #ecc998;
   text-align: center;
   border-radius: 10px;
   margin: 0;
@@ -192,7 +240,7 @@ body {
 .formulario select {
   border: 2px solid #32b9cd;
   background-color: white;
-  color: gray;
+  color: black;
   height: 36px;
   text-align: center;
   border-radius: 10px;
@@ -213,8 +261,8 @@ body {
   border-radius: 5px;
   font-weight: 600;
   font-size: 18px;
-  color: #fff;
-  background-color: #e6005a;
+  color: #ecc998;
+  background-color: black;
   width: 120px;
   height: 30px;
   align-self: center;
@@ -245,7 +293,7 @@ body {
 .card_erro {
   display: none;
   background-color: #fff;
-  color: black;
+  color: white;
   width: 230px;
   position: fixed;
   border-radius: 4px;
