@@ -358,6 +358,8 @@ input {
 
 .simulador .container {
   flex-direction: column;
+  justify-content: center;
+  align-items: center;
   overflow: scroll; 
   height: var(--tamanho-simulador);
 }
