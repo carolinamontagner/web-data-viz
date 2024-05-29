@@ -165,7 +165,7 @@ border-color: #ecc998;
 
 .footer {
   background-color:  #ecc998;
-  height: 150px;
+  height: 100px;
   color: black;
   display: flex;
   font-size: 15px;
@@ -362,6 +362,7 @@ input {
   align-items: center;
   overflow: scroll; 
   height: var(--tamanho-simulador);
+  width: 100%;
 }
 
 /* ALERTA */
