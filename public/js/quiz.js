@@ -18,24 +18,20 @@ const data = [
         correct: "b",
     },
     {
-        question: "Qual desses personagens perde a filha no começo do jogo?",
-        a: "Joel",
-        b: "Tommy",
-        c: "Dina",
-        d: "Tess",
-        e: "Bill",
-
-        correct: "a",
+        question: "Qual dessas características é comum no Chair Dance?",
+        a: "Uso de sapatilhas de ponta",
+        b: " Ritmos latinos",
+        c: "Movimentos acrobáticos com cadeiras",
+        d: "Dança em pares fixos",
+        correct: "c",
 
     },
     {
-        question: "Com quem Ellie é infectada no shopping na DLC 'Left Behind'?",
-        a: "Bill",
-        b: "Riley",
-        c: "Marta",
-        d: "Maria",
-        e: "Joel",
-
+        question: "'Qual é uma característica marcante da dança Jazz?",
+        a: "Movimentos rígidos e formais",
+        b: "Expressão livre e movimentos energéticos",
+        c: "Dança em silêncio total",
+        d: "Uso exclusivo de trajes tradicionais",
         correct: "b",
 
     },
