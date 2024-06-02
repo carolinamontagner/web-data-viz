@@ -22,7 +22,7 @@ function cadastrar(nome, email, senha) {
     return database.executar(instrucaoSql);
 }
 
-function respostas(idAquario){
+function respostas(){
     var instrucaoSql =`
     SELECT acertos, COUNT(fkusuario) AS quantidade_usuarios
 FROM respostas

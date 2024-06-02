@@ -72,19 +72,21 @@ function cadastrar(req, res) {
                 }
             );
     }
-    
-    function respostas(req,res){
-        var acertos = req.body.acertosServer;
-  
-            usuarioModel.respostas(acertos)
-        .then(
-            function (resultado) {
-                res.json(resultado);
-            }
-        )
-    }
-   
 }
+    function respostas(req,res){
+        const acertos = req.body.acertosServer;
+
+    usuarioModel.renpspostas(acertos)
+        .then(resultado => {
+            res.json(resultado);
+        })
+        .catch(erro => {
+            console.error("Erro ao buscar respostas:", erro);
+            res.status(500).json({ erro: "Erro ao buscar respostas" });
+        });
+}
+
+    
 
 module.exports = {
     autenticar,

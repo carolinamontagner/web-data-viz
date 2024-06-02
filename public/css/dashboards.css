@@ -244,34 +244,17 @@ body {
   font-weight: lighter;
   margin: 20px;
 }
-
-  .acertos_0{
-    margin: 5px;
-  margin-left: 20px;
-  width: 75%;
-
-  }
-.acerto_1 { 
-  margin: 5px;
-  margin-left: 20px;
-  width: 75%;
-}
-.acertos_2 { 
-  margin: 5px;
-  margin-left: 20px;
-  width: 75%;
-}
-.acertos_3 { 
-  margin: 5px;
-  margin-left: 20px;
-  width: 75%;
-}
-.acertos_4 { 
-  margin: 5px;
-  margin-left: 20px;
-  width: 75%;
+.dash {
+  display: flex;
 }
 
+.graficos {
+  background-color: #0000008f;
+  height: 300px;
+  width: 600px;
+  margin-top: 10%;
+}
+ 
 
 
 .cor-alerta {
