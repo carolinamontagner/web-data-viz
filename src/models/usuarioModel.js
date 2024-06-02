@@ -27,6 +27,10 @@ function respostas(idAquario){
     SELECT acertos, COUNT(fkusuario) AS quantidade_usuarios
 FROM respostas
 GROUP BY acertos; `;
+
+console.log("usuarioModel passou!!")
+
+return database.executar(instrucaoSql);
 }
 module.exports = {
     autenticar,

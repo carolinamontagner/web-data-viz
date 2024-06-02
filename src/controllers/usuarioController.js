@@ -72,6 +72,17 @@ function cadastrar(req, res) {
                 }
             );
     }
+    
+    function respostas(req,res){
+        var acertos = req.body.acertosServer;
+  
+            usuarioModel.respostas(acertos)
+        .then(
+            function (resultado) {
+                res.json(resultado);
+            }
+        )
+    }
    
 }
 
