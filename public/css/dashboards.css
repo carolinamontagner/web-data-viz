@@ -245,12 +245,34 @@ body {
   margin: 20px;
 }
 
-.temperatura,
-.umidade {
+  .acertos_0{
+    margin: 5px;
+  margin-left: 20px;
+  width: 75%;
+
+  }
+.acerto_1 { 
   margin: 5px;
   margin-left: 20px;
   width: 75%;
 }
+.acertos_2 { 
+  margin: 5px;
+  margin-left: 20px;
+  width: 75%;
+}
+.acertos_3 { 
+  margin: 5px;
+  margin-left: 20px;
+  width: 75%;
+}
+.acertos_4 { 
+  margin: 5px;
+  margin-left: 20px;
+  width: 75%;
+}
+
+
 
 .cor-alerta {
   width: 13%;

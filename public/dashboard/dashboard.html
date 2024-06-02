@@ -70,6 +70,7 @@
                 <!-- O gráfico é chamado de acordo com o id (fk_aquario) do banco  -->
             </div>
             <div id="graficos">
+                <a href="./dashboard.html" ></a>
             </div>
         </div>
     </div>
@@ -204,19 +205,45 @@
         let dados = {
             labels: labels,
             datasets: [{
-                label: 'Umidade',
+                label: 'acertos_0',
                 data: [],
                 fill: false,
                 borderColor: 'rgb(75, 192, 192)',
                 tension: 0.1
             },
             {
-                label: 'Temperatura',
+                label: 'acerto_1',
                 data: [],
                 fill: false,
                 borderColor: 'rgb(199, 52, 52)',
                 tension: 0.1
-            }]
+            },
+        
+            {
+                label: 'acertos_2',
+                data: [],
+                fill: false,
+                borderColor: 'rgb(199, 52, 52)',
+                tension: 0.1
+            },
+            {
+                label: 'axertos_3',
+                data: [],
+                fill: false,
+                borderColor: 'rgb(199, 52, 52)',
+                tension: 0.1
+            },
+            {
+                label: 'acertos_4',
+                data: [],
+                fill: false,
+                borderColor: 'rgb(199, 52, 52)',
+                tension: 0.1
+            },
+        
+        
+        ]
+           
         };
 
         console.log('----------------------------------------------')
@@ -241,7 +268,7 @@
 
         // Criando estrutura para plotar gráfico - config
         const config = {
-            type: 'line',
+            type: 'bar',
             data: dados,
         };
 
