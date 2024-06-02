@@ -22,10 +22,14 @@ function cadastrar(nome, email, senha) {
     return database.executar(instrucaoSql);
 }
 
-function respostas(acertos){
-    
+function respostas(idAquario){
+    var instrucaoSql =`
+    SELECT acertos, COUNT(fkusuario) AS quantidade_usuarios
+FROM respostas
+GROUP BY acertos; `;
 }
 module.exports = {
     autenticar,
-    cadastrar
+    cadastrar,
+    respostas
 };
