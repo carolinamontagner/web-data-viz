@@ -9,11 +9,10 @@ CREATE TABLE usuario (
 	senha VARCHAR(50)
 	);
     select * from usuario;
-
-Create Table dashboard(
-	idDash Int Primary Key auto_increment,
-    nome varchar(50),
-    fkquiz int,
-     constraint fkquiz foreign key (fkquiz)
-	references usuario(id)
+Create Table respostas(
+	idResp Int Primary Key auto_increment,
+    acertos int,
+    fkusuario int,
+     constraint fkusuario foreign key (fkusuario)
+	references usuario(idusuario)
     );
