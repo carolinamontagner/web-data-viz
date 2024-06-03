@@ -411,7 +411,11 @@ body {
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
   max-width: 800px; /* Define a largura máxima para melhor visualização */
 }
+.container_simulador{
+display: flex;
+flex-direction: column;
 
+}
 .sobre-mim h2, .album-fotos h2, .texto-adicional h2 {
   margin-top: 0;
 }
