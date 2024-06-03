@@ -14,6 +14,10 @@
     <link rel="stylesheet" href="../css/estilo.css" />
     <link rel="icon" href="./assets/icon/favicon2.ico" />
     <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Exo+2:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+        rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
 
 
@@ -59,11 +63,11 @@
             <div class="btns-dash" id="btnAquario">
                 <!-- O gráfico é chamado de acordo com o id (fk_aquario) do banco  -->
             </div>
-           <div class="dash">
-            <div class="graficos">
-                <canvas id="myChart"></canvas>
+            <div class="dash">
+                <div class="graficos">
+                    <canvas id="myChart"></canvas>
+                </div>
             </div>
-        </div>
         </div>
     </div>
 
@@ -190,49 +194,15 @@
         let dados = {
             labels: labels,
             datasets: [{
-                label: '0 acertos',
+                label: ' acertos',
                 data: [],
                 backgroundColor: 'purple',
                 borderColor: 'purple',
                 fill: false,
 
                 tension: 0.1
-            },
-            {
-                label: '1 acerto',
-                data: [],
-                backgroundColor: 'green',
-                borderColor: 'green',
-                fill: false,
-
-                tension: 0.1
-            },
-            {
-                label: '2 acertos',
-                data: [],
-                backgroundColor: 'darkorange',
-                borderColor: 'darkorange',
-                fill: false,
-
-                tension: 0.1
-            }, {
-                label: '3 acertos',
-                data: [],
-                backgroundColor: 'blue',
-                borderColor: 'blue',
-                fill: false,
-                borderColor: 'rgb(75, 192, 192)',
-                tension: 0.1
-            },
-            {
-                label: '4 acertos',
-                data: [],
-                backgroundColor: 'black',
-                borderColor: 'black',
-                fill: false,
-
-                tension: 0.1
             }]
+
         };
 
 
@@ -241,11 +211,24 @@
         console.log(resposta)
 
         // Inserindo valores recebidos em estrutura para plotar o gráfico
-        for (i = 0; i < resposta.length; i++) {
-            var registro = resposta[i];
-            labels.push(registro.acertos);
-            dados.datasets[0].data.push(registro.acertos);
+        for (i = 0; i < labels.length; i++) {
+
+            var label = labels[i];
+            var acerto_existe = false;
+            for (j = 0; j < resposta.length; j++) {
+                var registro = resposta[j]
+                if(registro.acertos == label){
+                    dados.datasets[0].data.push(registro.quantidade_usuarios)
+                    acerto_existe = true
+                }
+            }
+            if (acerto_existe == false ){
+                dados.datasets[0].data.push(0)
+            }
+            // labels.push(registro.acertos);
+         
         }
+
 
         console.log('----------------------------------------------')
         console.log('O gráfico será plotado com os respectivos valores:')

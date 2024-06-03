@@ -10,5 +10,8 @@ router.get("/ultimas/", function (req, res) {
 router.get("/tempo-real/", function (req, res) {
     medidaController.buscarMedidasEmTempoReal(req, res);
 })
+router.post("/quiz/", function (req, res) {
+    medidaController.enviarQuiz(req, res);
+})
 
 module.exports = router;

@@ -46,7 +46,7 @@ const optionA = document.getElementById("optionA")
 const optionB = document.getElementById("optionB")
 const optionC = document.getElementById("optionC")
 const optionD = document.getElementById("optionD")
-const optionE = document.getElementById("optionE")
+
 
 const submitBtn = document.getElementById("botaoQuiz")
 
@@ -65,7 +65,8 @@ function loadQuiz() {
     optionB.innerText = currentQuizData.b
     optionC.innerText = currentQuizData.c
     optionD.innerText = currentQuizData.d
-    optionE.innerText = currentQuizData.e
+
+    
 
 
 }
@@ -102,8 +103,22 @@ if(currentQuiz < data.length){
     loadQuiz()
 }
 else{
+    fetch("/medidas/quiz", {
+     method: "POST",
+     headers: {
+       "Content-Type": "application/json",
+     },
+     body: JSON.stringify({
+       // crie um atributo que recebe o valor recuperado aqui
+       // Agora vá para o arquivo routes/usuario.js
+       idUsuario: sessionStorage.ID_USUARIO,
+        acertos: score
+ 
+       
+     })
+   })
+   console.log("aaaa")
     quiz.innerHTML = `<h2>Você acertou ${score}/${data.length} questões!</h2>
     <button style="width: 200px; height: 150px;" onclick="location.reload()">Vamos fazer de novo?</button>`
- 
 }
 })

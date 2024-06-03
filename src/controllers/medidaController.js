@@ -40,9 +40,32 @@ function buscarMedidasEmTempoReal(req, res) {
         res.status(500).json(erro.sqlMessage);
     });
 }
+function enviarQuiz(req, res) {
+
+    var idUsuario = req.body.idUsuario;
+    var acertos = req.body.acertos;
+
+   
+
+    medidaModel.enviarQuiz(idUsuario,acertos).then(
+        function (resultado) {
+            res.json(resultado);
+        }
+    ).catch(
+        function (erro) {
+            console.log(erro);
+            console.log(
+                "\nHouve um erro ao enviar o quiz! Erro: ",
+                erro.sqlMessage
+            );
+            res.status(500).json(erro.sqlMessage);
+        }
+    );
+}
 
 module.exports = {
     buscarUltimasMedidas,
-    buscarMedidasEmTempoReal
+    buscarMedidasEmTempoReal,
+    enviarQuiz
 
 }
