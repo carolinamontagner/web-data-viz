@@ -431,3 +431,14 @@ canvas {
   margin-bottom: 100px;
   cursor: pointer;
 }
+
+.graficos{
+  width: 100%;
+  height: 80%;
+}
+
+.graph{
+  width: 80%;
+  height: 80%;
+  background-color: white;
+}
