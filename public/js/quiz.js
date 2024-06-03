@@ -103,6 +103,9 @@ if(currentQuiz < data.length){
     loadQuiz()
 }
 else{
+
+    let id_usuario = sessionStorage.getItem("ID_USUARIO");
+
     fetch("/medidas/quiz", {
      method: "POST",
      headers: {
@@ -111,7 +114,7 @@ else{
      body: JSON.stringify({
        // crie um atributo que recebe o valor recuperado aqui
        // Agora vá para o arquivo routes/usuario.js
-       idUsuario: sessionStorage.ID_USUARIO,
+       idUsuario: id_usuario,
         acertos: score
  
        

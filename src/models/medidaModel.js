@@ -25,7 +25,7 @@ GROUP BY acertos;`
 
 function buscarMedidasEmTempoReal() {
 
-    var instrucaoSql = `SELECT acertos, COUNT(DISTINCT fkusuario) AS quantidade_usuarios
+    var instrucaoSql = `SELECT acertos, COUNT(DISTINCT(fkusuario)) AS quantidade_usuarios
     FROM respostas
     WHERE acertos IN (0, 1, 2, 3, 4)
     GROUP BY acertos;
