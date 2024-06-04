@@ -30,16 +30,10 @@
                 <li>
                     <a href="dashboard.html">Dashboard</a>
                 </li>
-                <li>|</li>
-                <li>
-                    <a href="imagens_site.html">Fotos</a>
-                </li>
-                <li>|</li>
-                
-                <li class="agora">
-                    <a href="#">Quiz</a>
-                </li>
-                </li>
+
+
+
+
                 <li>|</li>
                 <a href="../index.html">Sair</a>
                 </li>
@@ -76,9 +70,9 @@
                         <label for="d" id="optionD">Opção D</label>
 
                     </li>
-                    
-                   
-                   
+
+
+
                     <button id="botaoQuiz">Responder</button>
 
                 </ul>
@@ -86,32 +80,29 @@
         </div>
     </div>
 
-   
+
 
     <!--footer inicio-->
     <footer>
 
-        <img src="../css/Imagens/Naughty_Dog_logo.svg.png">
-        
-        <img style="width: 130px; height: 60px;" src="../css/Imagens/Logo_ps4.jpg">
-      
+       
     </footer>
 
-<script src="../js/quiz.js"></script>
+    <script src="../js/quiz.js"></script>
 </body>
 
 </html>
 
 <script>
- fetch("/usuarios/acertos", {
-      method: "GET",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({
-        // crie um atributo que recebe o valor recuperado aqui
-        // Agora vá para o arquivo routes/usuario.js
-        acertoServer: acertoVar
-      }),
+    fetch("/usuarios/acertos", {
+        method: "GET",
+        headers: {
+            "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+            // crie um atributo que recebe o valor recuperado aqui
+            // Agora vá para o arquivo routes/usuario.js
+            acertoServer: acertoVar
+        }),
     })
 </script>

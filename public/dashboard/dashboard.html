@@ -20,63 +20,47 @@
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
 
-
-
 <body>
-
     <div class="janela">
         <div class="header-left">
-            <h1>AquaTech</h1>
-
+            <h1>StepByStep</h1>
             <div class="hello">
                 <h3>Olá, <span id="b_usuario">usuário</span>!</h3>
             </div>
-
             <div class="btn-nav-white">
                 <a href="./cards.html">
-                    <h3>Aquários</h3>
+                    <h3>Dança</h3>
                 </a>
             </div>
-
             <div class="btn-nav">
-
                 <h3>Gráficos</h3>
-
             </div>
-
             <div class="btn-nav-white">
                 <a href="./quiz.html">
-                    <h3> Quiz</h3>
+                    <h3>Quiz</h3>
                 </a>
             </div>
-
             <div class="btn-logout" onclick="limparSessao()">
                 <h3>Sair</h3>
             </div>
-
         </div>
-
         <div class="dash">
-            <div id="alerta">
+            <div id="alerta"></div>
+            <div class="graficos">
+                <div class="graph">
+                    <canvas id="myChart" class="graph"></canvas>
+                </div>
             </div>
 
-            <!-- <div class="btns-dash" id="btnAquario"> -->
-                <!-- O gráfico é chamado de acordo com o id (fk_aquario) do banco  -->
-            <!-- </div> -->
-            
-                <div class="graficos">
-                    <div class="graph">
-                        <canvas id="myChart" class="graph"></canvas>
-                    </div>
-                </div>
-            
-        </div>
+        
     </div>
-
-
+</div>
 </body>
 
 </html>
+
+
+
 
 <script>
     b_usuario.innerHTML = sessionStorage.NOME_USUARIO;
@@ -219,16 +203,16 @@
             var acerto_existe = false;
             for (j = 0; j < resposta.length; j++) {
                 var registro = resposta[j]
-                if(registro.acertos == label){
+                if (registro.acertos == label) {
                     dados.datasets[0].data.push(registro.quantidade_usuarios)
                     acerto_existe = true
                 }
             }
-            if (acerto_existe == false ){
+            if (acerto_existe == false) {
                 dados.datasets[0].data.push(0)
             }
             // labels.push(registro.acertos);
-         
+
         }
 
 

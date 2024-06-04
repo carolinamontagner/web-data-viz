@@ -27,7 +27,7 @@ const data = [
 
     },
     {
-        question: "'Qual é uma característica marcante da dança Jazz?",
+        question: "Qual é uma característica marcante da dança Jazz?",
         a: "Movimentos rígidos e formais",
         b: "Expressão livre e movimentos energéticos",
         c: "Dança em silêncio total",
@@ -122,6 +122,17 @@ else{
    })
    console.log("aaaa")
     quiz.innerHTML = `<h2>Você acertou ${score}/${data.length} questões!</h2>
-    <button style="width: 200px; height: 150px;" onclick="location.reload()">Vamos fazer de novo?</button>`
+    <button style=" display: inline-block;
+    background: #ecc998;
+    color: #000;
+    border: none;
+    padding: 10px 20px;
+    align-content: center;
+    cursor: pointer;
+    border-radius: 4px;
+    transition: background 0.3s ease;
+    text-transform: uppercase;
+    font-weight: bold;
+    margin-top: 20px;;" onclick="location.reload()">Vamos fazer de novo?</button>`
 }
 })

@@ -1,0 +1,17 @@
+body {
+    background-color: black;
+    color: #ecc998;
+    font-family: Arial, sans-serif;
+    text-align: center; /* Centraliza o texto */
+}
+
+h1 {
+    font-size: 24px;
+    margin-top: 20px; /* Espaço superior */
+}
+
+iframe {
+    border: 2px solid #ecc998;
+    display: block; /* Faz o vídeo ser exibido como bloco */
+    margin: 0 auto; /* Centraliza o vídeo horizontalmente */
+}
