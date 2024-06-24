@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <link rel="shortcut icon" href="../assets/icon/favicon2.ico" type="image/x-icon">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>StepByStep</title>
+
+
+    <link rel="stylesheet" href="./../css/dashboards.css">
+    <link rel="stylesheet" href="./../css/estilo.css" />
+    <link rel="stylesheet" href="./../css/cards.css" />
+    <link rel="stylesheet" href="./../css/rankdash.css" />
+    <!-- criei pagina para ranking e seu reespectivo css. 21/06 -->
+
+    <script src="../js/sessao.js"></script>
+    <script src="../js/alerta.js"></script>
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Exo+2:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+        rel="stylesheet">
+</head>
+
+<body onload="validarSessao(), exibirAquarios(),  atualizacaoPeriodica()">
+
+    <div class="janela">
+
+        <div class="header-left dash-header">
+
+            <h1>StepByStep</h1>
+
+            <div class="hello">
+                <h3>Olá, <span id="b_usuario">usuário</span>!</h3>
+            </div>
+
+            <div class="btn-nav">
+                <h3>Danças</h3>
+            </div>
+
+            <div class="btn-nav-white">
+                <a href="./dashboard.html">
+                    <h3>Gráficos</h3>
+                </a>
+            </div>
+
+            <div class="btn-nav-white">
+                <a href="./quiz.html">
+                    <h3> Quiz </h3>
+                </a>
+            </div>
+
+            <div class="btn-logout" onclick="limparSessao()">
+                <h3>Sair</h3>
+            </div>
+
+        </div>
+
+        <div class="dash">
+            <div id="alerta">
+            </div>
+            <div class="area-parametros-alerta">
+                <p class="titulo-legenda">
+                    Danças
+                
+
+
+                        <div class="inicio" id="inicio">
+                            <div class="texto">
+                                <p>
+                                    A dança é uma das formas mais antigas e universais de expressão cultural e artística, presente em diversas civilizações ao longo da história. Ela se manifesta de várias formas, desde danças folclóricas e tradicionais até estilos contemporâneos e urbanos. A prática da dança oferece uma ampla gama de benefícios que vão além do entretenimento e da expressão cultural, impactando diretamente a saúde física e mental dos indivíduos.
+
+Relacionando a dança com o terceiro objetivo das ODS (Objetivos de Desenvolvimento Sustentável) da ONU, que visa assegurar uma vida saudável e promover o bem-estar para todos em todas as idades, podemos destacar como a dança contribui para essa meta. A atividade física envolvida na dança melhora a condição cardiovascular, fortalece músculos e ossos, além de aumentar a flexibilidade e a coordenação motora. Esses benefícios físicos são cruciais para a prevenção de doenças crônicas como obesidade, diabetes e problemas cardíacos.
+
+Além dos benefícios físicos, a dança também desempenha um papel significativo na saúde mental e no bem-estar emocional. Ela é uma forma eficaz de reduzir o estresse, a ansiedade e os sintomas de depressão. A socialização inerente às aulas de dança e apresentações fortalece os vínculos sociais e promove um senso de comunidade e pertencimento. A expressão através da dança permite que os indivíduos processem e liberem emoções, contribuindo para um equilíbrio emocional e uma maior autoconfiança.
+
+Portanto, a dança é uma ferramenta poderosa para alcançar os objetivos de saúde e bem-estar delineados pelas ODS. Ela promove não apenas a aptidão física, mas também o equilíbrio mental e a coesão social, criando uma base sólida para uma vida mais saudável e plena.
+                                </p>
+                            </div>
+
+                        </div>
+
+                        <div class="continuacao" id="continuacao">
+                            <div class="conteudo"
+                                <p><b>DANÇAS</b></p>
+                                <div class="danças">
+                                    <div class="categorias">
+                                        <div class="original">
+                                            <img class="card"
+                                                src="./jazz.png"
+                                                alt="foto">
+                                        </div>
+                                        <div class="oculto">
+                                            A dança jazz é uma forma vibrante e dinâmica de expressão artística que combina expressãolivre e movimentos energéticos. Originada no início do século XX, ela é fortemente influenciada pelos ritmos e estilos musicais do jazz. Caracterizada por sua improvisação, ritmo acentuado e movimentos vigorosos, a dança jazz permite aos dançarinos explorar sua criatividade e energia, resultando em performances cheias de vida e emoção. Ela incorpora elementos de outros estilos de dança, como balé e dança moderna, mas mantém sua singularidade através de suas explosões rítmicas e liberdade expressiva, fazendo dela uma forma de arte empolgante e envolvente.
+                                        </div>
+
+                                    </div>
+                                    <div class="categorias">
+                                        <div class="original">
+                                            <img class="card"
+                                                src="./hip hop.png"
+                                                alt="">
+                                        </div>
+                                        <div class="oculto">
+                                            O hip hop é uma forma de dança que surgiu nas comunidades urbanas dos Estados Unidos na década de 1970. Caracterizado por movimentos explosivos e enérgicos, o hip hop incorpora uma variedade de estilos, incluindo breaking, popping e locking. Esta dança não só reflete a criatividade e a expressão individual, mas também serve como um meio de comunicação e união entre os jovens. Com uma base forte na improvisação e na batida rítmica da música, o hip hop continua a evoluir, influenciando culturas e conquistando espaços ao redor do mundo.
+                                        </div>
+
+                                    </div>
+                                    <div class="categorias">
+                                        <div class="original">
+                                            <img class="card"
+                                                src="./balle.png"
+                                                alt="">
+                                        </div>
+                                        <div class="oculto">
+                                            O balé, uma das formas mais clássicas e refinadas de dança, é caracterizado por sua elegância, precisão e complexidade técnica. Originado nas cortes italianas do Renascimento e posteriormente desenvolvido na França, o balé exige anos de treinamento rigoroso. Uma das técnicas mais icônicas do balé é a pirouette, onde o dançarino gira repetidamente sobre um pé, mantendo equilíbrio e graça. Esta técnica, que demonstra controle e habilidade, é central nas performances de balé, simbolizando a fusão perfeita entre força e delicadeza.
+                                        </div>
+                                    </div>
+
+
+
+
+                                    
+                                        <div class="categorias">
+                                            <div class="original">
+                                                <img class="card"
+                                                    src="./chair dance.png"
+                                                    alt="">
+                                            </div>
+                                            <div class="oculto">
+                                                O chair dance é uma forma de dança que incorpora movimentos acrobáticos com cadeiras, criando uma performance dinâmica e visualmente impressionante. Originada do burlesco e de outras formas de dança teatral, essa modalidade combina elementos de dança contemporânea, jazz e dança erótica, utilizando a cadeira como um elemento central da coreografia. Os dançarinos realizam giros, saltos, e poses acrobáticas sobre e ao redor das cadeiras, demonstrando força, flexibilidade e controle corporal. Além de ser uma atividade desafiadora e divertida, o chair dance também melhora a coordenação motora e a confiança dos praticantes.
+                                            </div>
+                                        </div>
+                                    
+
+
+
+
+
+                                </div>
+
+                            </div>
+                        </div>
