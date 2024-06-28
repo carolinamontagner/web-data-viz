@@ -14,4 +14,7 @@ router.post("/quiz/", function (req, res) {
     medidaController.enviarQuiz(req, res);
 })
 
+router.get("/position/", function (req, res) {
+    medidaController.buscarPosition(req, res);
+});
 module.exports = router;

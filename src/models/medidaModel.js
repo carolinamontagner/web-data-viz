@@ -54,22 +54,22 @@ function enviarQuiz(idUsuario, acertos) {
 
 
 // Criei essa função dentro do medida models para consultar o ranking via novo select adcionado ao banco de dados 26/06
+
+
+
 function buscarPosition() {
 
-    var instrucaoSql = ` SELECT u.nome, r.acertos
+
+    var instrucaoSql = `
+   SELECT u.nome, r.acertos
 FROM respostas r
 JOIN usuario u ON r.fkusuario = u.idusuario
 ORDER BY r.acertos DESC
 LIMIT 3;
 `
 
-
-
-
-    console.log("Executando a dashboard de ranking: \n" + instrucaoSql);
-    return database.executar(instrucaoSql);
+return database.executar(instrucaoSql);
 }
-
 
 
 module.exports = {

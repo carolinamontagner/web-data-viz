@@ -1,57 +1,59 @@
 <!DOCTYPE html>
 <html lang="pt-br">
-
 <head>
-    <link rel="shortcut icon" href="../assets/icon/favicon2.ico" type="image/x-icon">
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>StepByStep</title>
+    <title>Ranking</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="rankdash.css">
+</head>
+<body onload="buscarRanking()">
+    <div class="ranking">
+        <h1>Ranking</h1>
+        <div id="first" class="position">1º Lugar: <span class="name">Nome 1</span></div>
+        <div id="second" class="position">2º Lugar: <span class="name">Nome 2</span></div>
+        <div id="third" class="position">3º Lugar: <span class="name">Nome 3</span></div>
+    </div>
+</body>
+</html>
+<script>
+    var Fposition
+    var Sposition
+    var Tposition
+
+    function buscarRanking(){
+    fetch("/medidas/position", {
+            method: "GET",
+            headers: {
+                "Content-Type": "application/json",
+            }
+        })
+            .then(function (resposta) {
+                console.log("resposta: ", resposta);
+
+                    if (resposta.ok) {
+
+                        resposta.json().then(json => {
+                            console.log(json);
+                            console.log(JSON.stringify(json));
+                            Fposition = json.nome[0];
+                            Sposition = json.nome[1];
+                            Tposition =json.nome[2]
+                        });
 
 
-    <link rel="stylesheet" href="./../css/dashboards.css">
-    <link rel="stylesheet" href="./../css/estilo.css" />
-    <link rel="stylesheet" href="./../css/cards.css" />
-    <link rel="stylesheet" href="./../css/rankdash.css" />
-    <!-- criei pagina para ranking e seu reespectivo css. 21/06 -->
+                    } else {
+                        throw "Houve um erro ao tentar realizar o cadastro!";
+                    }
+            })
+            .catch(function (resposta) {
 
-    <script src="../js/sessao.js"></script>
-    <script src="../js/alerta.js"></script>
-    <link rel="preconnect" href="https://fonts.gstatic.com">
-    <link
-        href="https://fonts.googleapis.com/css2?family=Exo+2:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
-        rel="stylesheet">
-        <!DOCTYPE html>
-        <html lang="en">
-        <head>
-            <meta charset="UTF-8">
-            <meta name="viewport" content="width=device-width, initial-scale=1.0">
-            <title>Quiz Ranking</title>
-            <link rel="stylesheet" href="rankdash.css">
-        </head>
-        <body>
-            <div id="quiz-container">
-                <h1>Ranking dos Jogadores</h1>
-                <div id="ranking">
-                    <div class="player" id="first-place">
-                        <h2>1º Lugar</h2>
-                        <p id="first-player-name"></p>
-                        <p id="first-player-score"></p>
-                    </div>
-                    <div class="player" id="second-place">
-                        <h2>2º Lugar</h2>
-                        <p id="second-player-name"></p>
-                        <p id="second-player-score"></p>
-                    </div>
-                    <div class="player" id="third-place">
-                        <h2>3º Lugar</h2>
-                        <p id="third-player-name"></p>
-                        <p id="third-player-score"></p>
-                    </div>
-                </div>
-            </div>
-        
-            <script src="script.js"></script>
-        </body>
-        </html>
+                console.log(`#ERRO: ${resposta}`);
+            });
+        }
+
+</script>
+
+
+
         
