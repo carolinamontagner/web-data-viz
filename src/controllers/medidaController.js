@@ -64,28 +64,26 @@ function enviarQuiz(req, res) {
     
 }
 
-function buscarPosition(req,res){
+// Função para buscar a posição dos jogadores no ranking 27/06
+function buscarPosition(req, res) {
     console.log(`Recuperando medidas em tempo real`);
 
-medidaModel.buscarPosition().then(function (resultado) {
+    // Chama a função da model para buscar a posição no banco de dados 27/06
+    medidaModel.buscarPosition().then(function (resultado) {
         if (resultado.length > 0) {
-            res.status(200).json(resultado);
+            res.status(200).json(resultado); // Retorna o resultado em formato JSON com status 200 (OK)27/06
             res.json({
-                nome: resultado[0].nome
-        
+                nome: resultado[0].nome // Adiciona o nome do primeiro resultado no JSON de resposta 27/06
             });
         } else {
-            res.status(204).send("Nenhum resultado encontrado!")
+            res.status(204).send("Nenhum resultado encontrado!"); 
         }
     }).catch(function (erro) {
         console.log(erro);
         console.log("Houve um erro ao buscar as ultimas medidas.", erro.sqlMessage);
-        res.status(500).json(erro.sqlMessage);
+        // res.status(500).json(erro.sqlMessage); 
     });
-
-
 }
-
 module.exports = {
     buscarUltimasMedidas,
     buscarMedidasEmTempoReal,

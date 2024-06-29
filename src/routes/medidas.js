@@ -13,8 +13,10 @@ router.get("/tempo-real/", function (req, res) {
 router.post("/quiz/", function (req, res) {
     medidaController.enviarQuiz(req, res);
 })
-
+// Define uma rota GET para '/position/' 27/06
+// Quando essa rota é acessada, a função 'buscarPosition' do medidaController é chamada 27/06
 router.get("/position/", function (req, res) {
     medidaController.buscarPosition(req, res);
 });
+// Exporta a rota para que ele possa ser usado em outras partes da aplicação 27/06
 module.exports = router;

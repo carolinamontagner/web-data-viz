@@ -56,21 +56,19 @@ function enviarQuiz(idUsuario, acertos) {
 // Criei essa função dentro do medida models para consultar o ranking via novo select adcionado ao banco de dados 26/06
 
 
-
 function buscarPosition() {
-
-
+    // Define uma variável chamada 'instrucaoSql' que armazena a instrução SQL para selecionar os dados desejados.27/06
     var instrucaoSql = `
-   SELECT u.nome, r.acertos
-FROM respostas r
-JOIN usuario u ON r.fkusuario = u.idusuario
-ORDER BY r.acertos DESC
-LIMIT 3;
-`
+        SELECT u.nome, r.acertos
+        FROM respostas r
+        JOIN usuario u ON r.fkusuario = u.idusuario
+        ORDER BY r.acertos DESC
+        LIMIT 3;
+    `
 
-return database.executar(instrucaoSql);
+    // Executa a instrução SQL usando a função 'executar' do objeto 'database' e retorna o resultado. 27/06
+    return database.executar(instrucaoSql);
 }
-
 
 module.exports = {
     buscarUltimasMedidas,
