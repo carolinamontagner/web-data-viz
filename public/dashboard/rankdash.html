@@ -1,23 +1,23 @@
 <!DOCTYPE html>
 <html lang="pt-br">
+
 <head>
-    <!-- Metadados da página -->
+
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Ranking</title>
-    <!-- Importando a fonte Roboto do Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
-    <!-- Importando o arquivo CSS externo -->
     <link rel="stylesheet" href="rankdash.css">
 </head>
+
 <body onload="buscarRanking()">
-    <!-- Div que contém o ranking -->
+    <!-- Div que contém o ranking 27/06 -->
     <div class="ranking">
-        <h1>Ranking</h1>
-        <!-- Posicionamentos do ranking -->
+        <h1>Ganhadores do quiz</h1>
+        <!-- Posicionamentos do ranking 05/07-->
         <div id="first" class="position">1º Lugar: <span id="first_name" class="name">Nome 1</span></div>
-        <div id="second" class="position">2º Lugar: <span class="name">Nome 2</span></div>
-        <div id="third" class="position">3º Lugar: <span class="name">Nome 3</span></div>
+        <div id="second" class="position">2º Lugar: <span id="second_name" class="name">Nome 2</span></div>
+        <div id="third" class="position">3º Lugar: <span id="third_name" class="name">Nome 3</span></div>
     </div>
     <!-- Script JavaScript -->
     <script>
@@ -28,7 +28,7 @@
         var response;
 
         // Função chamada quando a página carrega  27/06
-        function buscarRanking(){
+        function buscarRanking() {
             // Fazendo uma requisição GET para buscar as posições do ranking  27/06
             fetch("/medidas/position", {
                 method: "GET",
@@ -36,32 +36,30 @@
                     "Content-Type": "application/json",
                 }
             })
-            .then(function (resposta) {
-                console.log("resposta: ", resposta);
+                .then(function (resposta) {
+                    console.log("resposta: ", resposta);
 
-                // Se a resposta for bem sucedida  27/06
-                if (resposta.ok) {
-                    // Converte a resposta em JSON  27/06
-                    resposta.json().then(json => {
-                        response = json;
-                        console.log(json);
-                        
-                        document.getElementById("first_name").innerHTML = json[0].nome;
-                    
-                    });
-                } else {
-                    throw "Houve um erro ao tentar realizar o cadastro!";
-                }
-            })
-            .catch(function (resposta) {
-                console.log(`#ERRO: ${resposta}`);
-            });
+                    // Se a resposta for bem sucedida  27/06
+                    if (resposta.ok) {
+                        // Converte a resposta em JSON  27/06
+                        resposta.json().then(json => {
+                            response = json;
+                            console.log(json);
+                            // Atualiza os elementos do DOM com os dados recebidos 05/07    
+                            document.getElementById("first_name").innerHTML = json[0].nome;
+                            document.getElementById("second_name").innerHTML = json[1].nome;
+                            document.getElementById("third_name").innerHTML = json[2].nome;
+
+                        });
+                    } else {
+                        throw "Houve um erro ao tentar realizar o cadastro!";
+                    }
+                })
+                .catch(function (resposta) {
+                    console.log(`#ERRO: ${resposta}`);
+                });
         }
     </script>
 </body>
+
 </html>
-
-
-
-
-        
