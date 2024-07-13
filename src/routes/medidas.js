@@ -17,6 +17,10 @@ router.post("/quiz/", function (req, res) {
 // Quando essa rota é acessada, a função 'buscarPosition' do medidaController é chamada 27/06
 router.get("/position/", function (req, res) {
     medidaController.buscarPosition(req, res);
+})
+//  Quando essa rota é acessada, a função 'buscarPorcentagem' do medidaController é chamada 12/07
+router.get("/porcentagem/", function (req, res) {
+    medidaController.buscarPorcentagem(req, res);
 });
 // Exporta a rota para que ele possa ser usado em outras partes da aplicação 27/06
 module.exports = router;

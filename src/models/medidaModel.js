@@ -69,10 +69,25 @@ function buscarPosition() {
     // Executa a instrução SQL usando a função 'executar' do objeto 'database' e retorna o resultado. 27/06
     return database.executar(instrucaoSql);
 }
+function buscarPorcentagem() {
+    // Define uma variável chamada 'instrucaoSql' que armazena a instrução SQL para selecionar os dados desejados.12/07
+    var instrucaoSql = `
+         SELECT 
+    acertos,
+    COUNT(idResp) * 100.0 / (SELECT COUNT(*) FROM respostas) AS porcentagem
+FROM
+    respostas
+GROUP BY 
+    acertos;
+    `
 
+    // Executa a instrução SQL usando a função 'executar' do objeto 'database' e retorna o resultado. 27/06
+    return database.executar(instrucaoSql);
+}
 module.exports = {
     buscarUltimasMedidas,
     buscarMedidasEmTempoReal,
     enviarQuiz,
-    buscarPosition   
+    buscarPosition,
+    buscarPorcentagem
 }
