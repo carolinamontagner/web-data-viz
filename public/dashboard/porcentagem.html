@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>Step By Step | Dashboard</title>
+
+    <link rel="stylesheet" href="porcentagem.css" />
+    <link rel="icon" href="../assets/Logotipo moda feminina preto e bege (1)/1.png" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link href="https://fonts.googleapis.com/css2?family=Exo+2:wght@100;200;300;400;500;600;700;800;900&display=swap"
+        rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+
+<body>
+    <div class="janela">
+        <div class="header-left">
+            <h1>StepByStep</h1>
+            <div class="hello">
+                <h3>Olá, <span id="b_usuario">usuário</span>!</h3>
+            </div>
+            <div class="btn-nav-white">
+                <a href="./dança.html">
+                    <h3>Dança</h3>
+                </a>
+            </div>
+            <div class="btn-nav">
+                <a href="./dashboard.html">
+                    <h3>Acertos</h3>
+                </a>
+            </div>
+            <div class="btn-nav-white">
+                <a href="./rankdash.html">
+                    <h3>Ranking</h3>
+                </a>
+            </div>
+            <div class="btn-nav-white">
+                <a href="./porcentagem.html">
+                    <h3>Porcentagem</h3>
+                </a>
+            </div>
+            <div class="btn-nav-white">
+                <a href="./quiz.html">
+                    <h3>Quiz</h3>
+                </a>
+            </div>
+            <div class="btn-logout" onclick="limparSessao()">
+                <h3>Sair</h3>
+            </div>
+        </div>
+        <div class="dash">
+            <div id="alerta"></div>
+            <div class="graficos">
+                <div class="graph">
+                    <canvas id="myPieChart" class="graph"></canvas>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script>document.addEventListener("DOMContentLoaded", function () {
+        b_usuario.innerHTML = sessionStorage.NOME_USUARIO;
+        obterDadosGrafico();
+    });
+    
+    function limparSessao() {
+        sessionStorage.clear();
+        window.location.href = './login.html';
+    }
+    
+    b_usuario.innerHTML = sessionStorage.NOME_USUARIO;
+
+let proximaAtualizacao;
+
+window.onload = obterDadosGrafico();
+function obterDadosGrafico() {
+
+    fetch('/medidas/porcentagem', { cache: 'no-store' }).then(function (response) {
+        if (response.ok) {
+            response.json().then(function (resposta) {
+                console.log(`Dados recebidos: ${JSON.stringify(resposta)}`);
+                resposta.reverse();
+
+                plotarGrafico(resposta);
+
+            });
+        } else {
+            console.error('Nenhum dado encontrado ou erro na API');
+        }
+    })
+        .catch(function (error) {
+            console.error(`Erro na obtenção dos dados p/ gráfico: ${error.message}`);
+        });
+}
+    
+    function plotarGrafico(resposta) {
+        let labels = [];
+        let data = [];
+    
+        resposta.forEach(registro => {
+            labels.push(`Acertos: ${registro.acertos}`);
+            data.push(registro.porcentagem);
+        });
+    
+        const dados = {
+            labels: labels,
+            datasets: [{
+                data: data,
+                backgroundColor: [
+                    'rgba(255, 99, 132, 0.2)',
+                    'rgba(54, 162, 235, 0.2)',
+                    'rgba(255, 206, 86, 0.2)',
+                    'rgba(75, 192, 192, 0.2)',
+                    'rgba(153, 102, 255, 0.2)',
+                    'rgba(255, 159, 64, 0.2)'
+                ],
+                borderColor: [
+                    'rgba(255, 99, 132, 1)',
+                    'rgba(54, 162, 235, 1)',
+                    'rgba(255, 206, 86, 1)',
+                    'rgba(75, 192, 192, 1)',
+                    'rgba(153, 102, 255, 1)',
+                    'rgba(255, 159, 64, 1)'
+                ],
+                borderWidth: 1
+            }]
+        };
+    
+        const config = {
+            type: 'pie',
+            data: dados,
+            options: {
+                responsive: true,
+                plugins: {
+                    legend: {
+                        position: 'top',
+                    },
+                    tooltip: {
+                        callbacks: {
+                            label: function (context) {
+                                
+                            }
+                        }
+                    }
+                }
+            },
+        };
+    
+        new Chart(document.getElementById('myPieChart'), config);
+    }
+    </script>
+</body>
+
+</html>
+

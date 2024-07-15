@@ -1,0 +1,74 @@
+body {
+    font-family: 'Exo 2', sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    background-color: #f5f5f5;
+}
+
+.janela {
+    display: flex;
+    width: 80%;
+    height: 80%;
+    background-color: white;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.header-left {
+    width: 20%;
+    background-color: #e6005a;
+    color: white;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+.header-left h1 {
+    margin: 0;
+    font-size: 24px;
+    margin-bottom: 20px;
+}
+
+.hello {
+    margin-bottom: 20px;
+}
+
+.hello h3 {
+    margin: 0;
+}
+
+.btn-nav,
+.btn-nav-white,
+.btn-logout {
+    margin-bottom: 10px;
+}
+
+.btn-nav a,
+.btn-nav-white a,
+.btn-logout {
+    color: white;
+    text-decoration: none;
+}
+
+.btn-nav-white a {
+    color: #e6005a;
+}
+
+.dash {
+    width: 80%;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+.graficos {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+}
+
+.graph {
+    width: 100%;
+    max-width: 600px;
+}
