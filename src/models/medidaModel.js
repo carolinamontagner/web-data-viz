@@ -72,10 +72,10 @@ function buscarPosition() {
 function buscarPorcentagem() {
     // Define uma variável chamada 'instrucaoSql' que armazena a instrução SQL para selecionar os dados desejados.12/07
     var instrucaoSql = `
-         SELECT 
+       SELECT 
     acertos,
-    COUNT(idResp) * 100.0 / (SELECT COUNT(*) FROM respostas) AS porcentagem
-FROM
+    ROUND(COUNT(idResp) * 100.0 / (SELECT COUNT(*) FROM respostas)) AS porcentagem
+FROM 
     respostas
 GROUP BY 
     acertos;

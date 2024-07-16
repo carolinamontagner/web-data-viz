@@ -52,107 +52,133 @@
                 <h3>Sair</h3>
             </div>
         </div>
-        <div class="dash">
-            <div id="alerta"></div>
-            <div class="graficos">
-                <div class="graph">
-                    <canvas id="myPieChart" class="graph"></canvas>
-                </div>
+        <!DOCTYPE html>
+        <html lang="pt-BR">
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>Dashboard</title>
+            <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+        </head>
+        <body>
+            <!-- Seção principal do dashboard 15/07 -->
+    <div class="dash">
+        <!-- Div para exibir alertas 15/07 -->
+        <div id="alerta"></div>
+        <!-- Seção para os gráficos 15/07 -->
+        <div class="graficos">
+            <!-- Div que contém o canvas onde o gráfico será desenhado 15/07 -->
+            <div class="graph">
+                <canvas id="myPieChart" class="graph"></canvas>
+                
             </div>
         </div>
     </div>
-    <script>document.addEventListener("DOMContentLoaded", function () {
-        b_usuario.innerHTML = sessionStorage.NOME_USUARIO;
-        obterDadosGrafico();
-    });
-    
-    function limparSessao() {
-        sessionStorage.clear();
-        window.location.href = './login.html';
-    }
-    
-    b_usuario.innerHTML = sessionStorage.NOME_USUARIO;
 
-let proximaAtualizacao;
+    <script>
+        // Executa quando o DOM é completamente carregado 15/07
+        document.addEventListener("DOMContentLoaded", function () {
+            // Define o nome do usuário a partir da sessão 15/07
+            b_usuario.innerHTML = sessionStorage.NOME_USUARIO;
+            // Chama a função para obter dados do gráfico 15/07
+            obterDadosGrafico();
+        });
 
-window.onload = obterDadosGrafico();
-function obterDadosGrafico() {
-
-    fetch('/medidas/porcentagem', { cache: 'no-store' }).then(function (response) {
-        if (response.ok) {
-            response.json().then(function (resposta) {
-                console.log(`Dados recebidos: ${JSON.stringify(resposta)}`);
-                resposta.reverse();
-
-                plotarGrafico(resposta);
-
-            });
-        } else {
-            console.error('Nenhum dado encontrado ou erro na API');
+        // Função para limpar a sessão e redirecionar para a página de login 15/07
+        function limparSessao() {
+            sessionStorage.clear();
+            window.location.href = './login.html';
         }
-    })
-        .catch(function (error) {
-            console.error(`Erro na obtenção dos dados p/ gráfico: ${error.message}`);
-        });
-}
-    
-    function plotarGrafico(resposta) {
-        let labels = [];
-        let data = [];
-    
-        resposta.forEach(registro => {
-            labels.push(`Acertos: ${registro.acertos}`);
-            data.push(registro.porcentagem);
-        });
-    
-        const dados = {
-            labels: labels,
-            datasets: [{
-                data: data,
-                backgroundColor: [
-                    'rgba(255, 99, 132, 0.2)',
-                    'rgba(54, 162, 235, 0.2)',
-                    'rgba(255, 206, 86, 0.2)',
-                    'rgba(75, 192, 192, 0.2)',
-                    'rgba(153, 102, 255, 0.2)',
-                    'rgba(255, 159, 64, 0.2)'
-                ],
-                borderColor: [
-                    'rgba(255, 99, 132, 1)',
-                    'rgba(54, 162, 235, 1)',
-                    'rgba(255, 206, 86, 1)',
-                    'rgba(75, 192, 192, 1)',
-                    'rgba(153, 102, 255, 1)',
-                    'rgba(255, 159, 64, 1)'
-                ],
-                borderWidth: 1
-            }]
-        };
-    
-        const config = {
-            type: 'pie',
-            data: dados,
-            options: {
-                responsive: true,
-                plugins: {
-                    legend: {
-                        position: 'top',
-                    },
-                    tooltip: {
-                        callbacks: {
-                            label: function (context) {
-                                
+
+        // Variável global para armazenar a instância do gráfico 15/07
+        let myPieChart;
+
+        // Função para obter dados do gráfico via API 15/07
+        function obterDadosGrafico() {
+            fetch('/medidas/porcentagem', { cache: 'no-store' }).then(function (response) {
+                if (response.ok) {
+                    response.json().then(function (resposta) {
+                        console.log(`Dados recebidos: ${JSON.stringify(resposta)}`);
+                        // Inverte a ordem dos dados recebidos 15/07
+                        resposta.reverse();
+                        // Chama a função para plotar o gráfico 15/07
+                        plotarGrafico(resposta);
+                    });
+                } else {
+                    console.error('Nenhum dado encontrado ou erro na API 15/07');
+                }
+            })
+            .catch(function (error) {
+                console.error(`Erro na obtenção dos dados p/ gráfico: ${error.message} 15/07`);
+            });
+        }
+
+        // Função para plotar o gráfico com os dados recebidos 15/07
+        function plotarGrafico(resposta) {
+            let labels = [];
+            let data = [];
+
+            // Preenche os arrays de labels e data com os dados recebidos 15/07
+            resposta.forEach(registro => {
+                labels.push(`Acertos: ${registro.acertos}`);
+                data.push(registro.porcentagem);
+            });
+
+            // Configuração dos dados do gráfico 15/07
+            const dados = {
+                labels: labels,
+                datasets: [{
+                    data: data,
+                    backgroundColor: [
+                        'rgba(255, 99, 132, 0.2)',
+                        'rgba(54, 162, 235, 0.2)',
+                        'rgba(255, 206, 86, 0.2)',
+                        'rgba(75, 192, 192, 0.2)',
+                        'rgba(153, 102, 255, 0.2)',
+                        'rgba(255, 159, 64, 0.2)'
+                    ],
+                    borderColor: [
+                        'rgba(255, 99, 132, 1)',
+                        'rgba(54, 162, 235, 1)',
+                        'rgba(255, 206, 86, 1)',
+                        'rgba(75, 192, 192, 1)',
+                        'rgba(153, 102, 255, 1)',
+                        'rgba(255, 159, 64, 1)'
+                    ],
+                    borderWidth: 1
+                }]
+            };
+
+            // Configuração do gráfico 15/07
+            const config = {
+                type: 'pie', // Tipo de gráfico: pizza 15/07
+                data: dados,
+                options: {
+                    responsive: true,
+                    plugins: {
+                        legend: {
+                            position: 'top', // Posição da legenda 15/07
+                        },
+                        tooltip: {
+                            callbacks: {
+                                label: function (context) {
+                                    // Formata o tooltip para mostrar a porcentagem 15/07
+                                    return `${context.label}: ${context.raw}%`;
+                                }
                             }
                         }
                     }
-                }
-            },
-        };
-    
-        new Chart(document.getElementById('myPieChart'), config);
-    }
+                },
+            };
+
+            // Destroi o gráfico existente antes de criar um novo 15/07
+            if (myPieChart) {
+                myPieChart.destroy();
+            }
+
+            // Cria um novo gráfico com as configurações definidas 15/07
+            myPieChart = new Chart(document.getElementById('myPieChart'), config);
+        }
     </script>
 </body>
-
 </html>
-
