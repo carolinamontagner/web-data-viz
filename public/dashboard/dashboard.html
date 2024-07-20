@@ -59,8 +59,10 @@
         <div class="dash">
             <div id="alerta"></div>
             <div class="graficos">
-                <div class="graph">
-                    <canvas id="myChart" class="graph"></canvas>
+                <div class="graph" style="position: relative; height:40vh; width:80vw">
+                    <canvas id="myChart"></canvas>
+                </div>
+    
                 </div>
             </div>
 
@@ -161,7 +163,9 @@
         const config = {
             type: 'bar',
             data: dados,
+            
         };
+
 
         // Adicionando gráfico criado em div na tela
         let myChart = new Chart(
@@ -173,7 +177,6 @@
 
     // Esta função atualizarGrafico atualiza o gráfico que foi renderizado na página,
     // buscando a última medida inserida em tabela contendo as capturas,
-
     //     Se quiser alterar a busca, ajuste as regras de negócio em src/controllers
     //     Para ajustar o "select", ajuste o comando sql em src/models
     // function atualizarGrafico(idAquario, dados, myChart) {
