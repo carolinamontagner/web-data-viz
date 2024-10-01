@@ -83,13 +83,14 @@
 
     window.onload = obterDadosGrafico();
     function obterDadosGrafico() {
-
+// fetch= busca respostas na rota
         fetch('/medidas/ultimas', { cache: 'no-store' }).then(function (response) {
             if (response.ok) {
+                // resposta convertida em json (caso tudo OK)
                 response.json().then(function (resposta) {
                     console.log(`Dados recebidos: ${JSON.stringify(resposta)}`);
                     resposta.reverse();
-
+// chamar func plotar gráfico com o json da resposta como parâmetro
                     plotarGrafico(resposta);
 
                 });
