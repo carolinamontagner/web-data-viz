@@ -41,13 +41,14 @@ function buscarMedidasEmTempoReal(req, res) {
     });
 }
 function enviarQuiz(req, res) {
-
+// Parâmetros- Requisição e resposta
     var idUsuario = req.body.idUsuario;
     var acertos = req.body.acertos;
 
    
 
     medidaModel.enviarQuiz(idUsuario,acertos).then(
+    
         function (resultado) {
             res.json(resultado);
         }

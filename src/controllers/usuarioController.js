@@ -76,7 +76,7 @@ function cadastrar(req, res) {
     function respostas(req,res){
         const acertos = req.body.acertosServer;
 
-    usuarioModel.renpspostas(acertos)
+    usuarioModel.respostas(acertos)
         .then(resultado => {
             res.json(resultado);
         })

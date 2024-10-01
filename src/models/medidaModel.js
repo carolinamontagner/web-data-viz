@@ -51,7 +51,7 @@ function enviarQuiz(idUsuario, acertos) {
     console.log("Executando a instrução SQL: \n" + instrucaoSql);
     return database.executar(instrucaoSql);
 }
-
+// Executa a instrução SQL e retorna a resposta
 
 // Criei essa função dentro do medida models para consultar o ranking via novo select adcionado ao banco de dados 26/06
 
